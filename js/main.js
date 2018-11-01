@@ -1,4 +1,4 @@
-/* */
+/* 
 
 function myFunction() {
     var td = document.createElement("TD");
@@ -10,3 +10,5 @@ function myFunction() {
     document.getElementById("8am").appendChild(td);
 }
 myFunction();
+
+*/
