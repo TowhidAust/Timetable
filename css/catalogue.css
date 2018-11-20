@@ -1,48 +1,51 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
-.Container-Custom {
-    width: 85%;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+.Catalogue-Table {
+    overflow-x: auto;
+    width: 90%;
     margin: 0 auto;
+    margin-top: 5%;
+    font-family: 'Open Sans', sans-serif;
 }
 
-
-/* ---------------------------------------------------
------------------------Table styles-------------------
------------------------------------------------------- */
-
-.Table th {
-    padding: 1.5%;
+.Catalogue-Table .leftcol-color {
+    background-color: rgba(52, 73, 94, 0.9);
 }
 
-.Table .Top-Head {
-    background-color: #34495E;
-    color: #fff;
+.Catalogue-Table .Headline {
+    text-align: center;
+    background-color: darkred;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0.5px;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-.Table .Left-Head {
-    background-color: #485B6E;
-    color: #fff;
+.Catalogue-Table table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* td colors */
-.grey {
-    background-color: #7F8C8D;
+.Catalogue-Table th, .Catalogue-Table td {
+    text-align: center;
+    padding: 1.5% 0;
 }
 
-
-.green {
-    background-color: #1ABC9C;
+.Catalogue-Table th {
+    background: #34495e;
+    color: white;
 }
 
+.Catalogue-Table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
 
-
-
+/* Tooltip starts */
 
 /* Add this attribute to the element that needs a tooltip */
+
 [data-tooltip] {
     position: relative;
     z-index: 2;
@@ -51,13 +54,14 @@
 }
 
 /* Hide the tooltip content by default */
-[data-tooltip]:before,
-[data-tooltip]:after {
+
+[data-tooltip]:before, [data-tooltip]:after {
     visibility: hidden;
     pointer-events: none;
 }
 
 /* Position tooltip above the element */
+
 [data-tooltip]:before {
     position: absolute;
     bottom: 110%;
@@ -75,6 +79,7 @@
 }
 
 /* Triangle hack to make tooltip look like a speech bubble */
+
 [data-tooltip]:after {
     position: absolute;
     bottom: 110%;
@@ -90,11 +95,11 @@
     line-height: 0;
 }
 
-
-
 /* Show tooltip content on hover */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
+
+[data-tooltip]:hover:before, [data-tooltip]:hover:after {
     visibility: visible;
     bottom: 90%;
 }
+
+/* Tooltip ends */
