@@ -1,64 +1,16 @@
-// function position() {
-//   $(".Headline").mouseover(function() {
-//     var p = $(".Headline");
-//     var position = p.position();
-//     alert("left: " + position.left + ", top: " + position.top);
-//   });
-// }
-// position();
-
-// finding the coordinates
-// function position(element) {
-//   $(function() {
-//     $(".div1").mouseover(function() {
-//       var offset = $(element).offset();
-//       console.log("left: " + offset.left + ", top: " + offset.top);
-//     });
-//   });
-// }
-// position(".div1");
-
-// placing a div according to pixel position:
-// $(document).ready(function() {
-//   $("button").click(function() {
-//     newPos = new Object();
-//     newPos.left = "103";
-//     newPos.top = "125";
-//     $(".div1").offset(newPos);
-//   });
-// });
-
-function getOffset(el) {
-  var _x = 0;
-  var _y = 0;
-  while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
-    _x += el.offsetLeft - el.scrollLeft;
-    _y += el.offsetTop - el.scrollTop;
-    el = el.offsetParent;
-  }
-  return { top: _y, left: _x };
-}
-var x = getOffset(document.getElementById("yourElId")).left;
-
 function timeTableGrid(sTime, eTime, day) {
-  var offsetStartTime = $(sTime).offset();
-  var offsetEndTime = $(eTime).offset();
-  var offsetDay = $(day).offset();
-  //   console.log("left: " + offsetStart.left + ", top: " + offsetStart.top);
-  //   const x1 = parseInt(offsetStartTime.left);
-  //   const y1 = parseInt(offsetStartTime.top);
-  //   const x2 = parseInt(offsetEndTime.left);
-  //   const y2 = parseInt(offsetEndTime.top);
-  //   const dx1 = parseInt(offsetDay.left);
-  //   const dx2 = parseInt(offsetDay.top);
+  const offsetStartTime = $(sTime).offset();
+  const offsetEndTime = $(eTime).offset();
+  const offsetDay = $(day).offset();
 
-  const x1 = offsetStartTime.left;
-  const y1 = offsetStartTime.top;
-  const x2 = offsetEndTime.left;
-  const y2 = offsetEndTime.top;
-  const dx1 = offsetDay.left;
-  const dx2 = offsetDay.top;
-  //   console.log("this is: " + x1 + " and :" + !isNaN(x1));
+
+  const x1 = parseFloat(offsetStartTime.left);
+  const y1 = parseFloat(offsetStartTime.top);
+  const x2 = parseFloat(offsetEndTime.left);
+  const y2 = parseFloat(offsetEndTime.top);
+
+  const dx1 = parseFloat(offsetDay.left);
+  const dy1 = parseFloat(offsetDay.top);
   console.log(x1);
 
   console.log(
@@ -67,17 +19,29 @@ function timeTableGrid(sTime, eTime, day) {
     "x2: " + x2,
     "y2: " + y2,
     "dx1: " + dx1,
-    "dx2: " + dx2
+    "dy1: " + dy1,
   );
+  const calcHeight = y2 - y1;
+  console.log("height: " + calcHeight);
+  // placing a div into a new position
+  $("button").click(function () {
+    newPos = new Object();
+    newPos.left = dx1;
+    newPos.top = y1;
+    console.log("Loop executed");
+    $(".div1").offset(newPos);
 
-  var m = x1 - x2;
-  console.log("i am m: " + m);
+    $(".div1").css("height", calcHeight);
+    parentWidth = $(".day").innerWidth();
+    $(".div1").css("width", parentWidth);
 
-  var n = y1 - y2;
-  var a = Math.pow(m, 2);
-  var b = Math.pow(n, 2);
+    $(".div1").css("z-index", "101");
+    $(".div1").css("position", "absolute");
+    $(".div1").css("background-color", "green");
+    $(".div1").css("text-align", "center");
 
-  var calcHeight = Math.sqrt(a - b);
-  console.log("i am calc: " + calcHeight); // this is showing that is not a number. why??
+  });
 }
-timeTableGrid(".div1", ".Catalogue-Table", ".sunday");
+// timeTableGrid(".12pm", ".20pm", ".thursday");
+timeTableGrid(".9am", ".12pm", ".monday");
+// timeTableGrid(".8am", ".9am", ".monday");
