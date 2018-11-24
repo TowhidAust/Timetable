@@ -9,6 +9,9 @@
 
 .Catalogue-Table .leftcol-color {
     background-color: rgba(52, 73, 94, 0.9);
+    /* transform: translateY(-50%); */
+    /* position: absolute; */
+    padding: 2%;
 }
 
 .Catalogue-Table .Headline {
