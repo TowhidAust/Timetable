@@ -9,9 +9,16 @@
 
 .Timetable .leftcol-color {
   background-color: rgba(52, 73, 94, 0.9);
+  position: relative;
   /* transform: translateY(-50%); */
   /* position: absolute; */
   /* padding: 2%; */
+}
+
+.Timetable .leftcol-color .spantag {
+  position: absolute;
+  top: 0;
+  left: 30%;
 }
 
 .Timetable .Headline {

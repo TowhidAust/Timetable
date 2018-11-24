@@ -28,7 +28,7 @@ function timeTableGrid(sTime, eTime, day) {
   newPos.top = y1;
   $(".div1").offset(newPos);
   $(".div1").css("height", calcHeight);
-  parentWidth = $(".day").innerWidth();
+  parentWidth = $(".day").innerWidth() + 1;
   console.log("this is inner width: " + parentWidth);
   $(".div1").css("width", parentWidth);
   $(".div1").css("z-index", "101");
