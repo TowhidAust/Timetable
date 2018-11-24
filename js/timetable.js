@@ -19,6 +19,8 @@ function timeTableGrid(sTime, eTime, day) {
     "dx1: " + dx1,
     "dy1: " + dy1
   );
+
+  $("body").append(`<div class="div1" style="position: absolute; visibility: hidden;"><h3>Batch name</h3><span>Time</span></div>`);
   const calcHeight = y2 - y1;
   console.log("height: " + calcHeight);
   newPos = new Object();
@@ -27,13 +29,17 @@ function timeTableGrid(sTime, eTime, day) {
   $(".div1").offset(newPos);
   $(".div1").css("height", calcHeight);
   parentWidth = $(".day").innerWidth();
+  console.log("this is inner width: " + parentWidth);
   $(".div1").css("width", parentWidth);
   $(".div1").css("z-index", "101");
   $(".div1").css("background-color", "green");
   $(".div1").css("text-align", "center");
   $(".div1").css("visibility", "visible");
 }
-// timeTableGrid(".12pm", ".20pm", ".thursday");
-timeTableGrid(".10am", ".19pm", ".wednesday");
-timeTableGrid(".10am", ".19pm", ".sunday");
-// timeTableGrid(".8am", ".9am", ".monday");
+// timeTableGrid(".9am", ".20pm", ".sunday");
+// timeTableGrid(".10am", ".19pm", ".monday");
+// timeTableGrid(".10am", ".19pm", ".tuesday");
+timeTableGrid(".8am", ".12pm", ".wednesday");
+// timeTableGrid(".8am", ".12pm", ".thursday");
+// timeTableGrid(".8am", ".12pm", ".friday");
+// timeTableGrid(".8am", ".9am", ".friday");
