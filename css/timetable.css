@@ -1,24 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300, 400, 600);
 .Timetable {
   overflow-x: auto;
-  width: 90%;
-  margin: 0 auto;
+  /* width: 90%; */
+  /* margin: 0 auto; */
   margin-top: 5%;
   font-family: "Open Sans", sans-serif;
 }
 
 .Timetable .leftcol-color {
-  background-color: rgba(52, 73, 94, 0.9);
+  background-color: transparent;
   position: relative;
-  /* transform: translateY(-50%); */
-  /* position: absolute; */
-  /* padding: 2%; */
 }
 
 .Timetable .leftcol-color .spantag {
   position: absolute;
-  top: 0;
-  left: 30%;
+  bottom: 90%;
+  left: 60%;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .Timetable .Headline {
@@ -29,8 +28,7 @@
   padding: 0.5px;
   color: white;
   border-radius: 3px;
-  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
-    0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 .Timetable table {
@@ -39,21 +37,24 @@
   overflow: hidden;
 }
 
-.Timetable th,
-.Timetable td {
+.Timetable th, .Timetable td {
   text-align: center;
   width: 40px;
   padding: 30px 0;
+}
+
+.Timetable .border {
   border: 1px solid #34495e;
 }
 
 .Timetable th {
-  background: #34495e;
-  color: white;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .Timetable tr:nth-child(odd) {
-  background-color: #f2f2f2;
+  background-color: transparent;
 }
 
 /* Tooltip starts */
@@ -69,8 +70,7 @@
 
 /* Hide the tooltip content by default */
 
-[data-tooltip]:before,
-[data-tooltip]:after {
+[data-tooltip]:before, [data-tooltip]:after {
   visibility: hidden;
   pointer-events: none;
 }
@@ -112,8 +112,7 @@
 
 /* Show tooltip content on hover */
 
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
+[data-tooltip]:hover:before, [data-tooltip]:hover:after {
   visibility: visible;
   bottom: 90%;
 }

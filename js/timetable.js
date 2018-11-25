@@ -1,4 +1,8 @@
-function timeTableGrid(sTime, eTime, day) {
+function timeTableGrid(sTime, eTime, day, batchName, color_) {
+
+  var className = sTime.split(".")[1] + eTime.split(".")[1] + day.split(".")[1] + batchName;
+
+
   const offsetStartTime = $(sTime).offset();
   const offsetEndTime = $(eTime).offset();
   const offsetDay = $(day).offset();
@@ -20,26 +24,29 @@ function timeTableGrid(sTime, eTime, day) {
     "dy1: " + dy1
   );
 
-  $("body").append(`<div class="div1" style="position: absolute; visibility: hidden;"><h3>Batch name</h3><span>Time</span></div>`);
+  $("body").append(`<div class="${className}" style="position: absolute; visibility: hidden;color:white;">
+  <div style="position: relative; top:43%; left:50%; transform: translate(-50%, -50%);"><span style="font-size: 12px;">${sTime.split(".")[1]} - ${eTime.split(".")[1]}</span> <br>  <span style="font-size: 30px;">${batchName}</span>   </div>
+ </div>`);
   const calcHeight = y2 - y1;
   console.log("height: " + calcHeight);
   newPos = new Object();
   newPos.left = dx1;
   newPos.top = y1;
-  $(".div1").offset(newPos);
-  $(".div1").css("height", calcHeight);
-  parentWidth = $(".day").innerWidth() + 1;
+  $("." + className).offset(newPos);
+  $("." + className).css("height", calcHeight);
+  parentWidth = $(".day").innerWidth();
   console.log("this is inner width: " + parentWidth);
-  $(".div1").css("width", parentWidth);
-  $(".div1").css("z-index", "101");
-  $(".div1").css("background-color", "green");
-  $(".div1").css("text-align", "center");
-  $(".div1").css("visibility", "visible");
+  $("." + className).css("width", parentWidth);
+  $("." + className).css("z-index", "101");
+  $("." + className).css("background-color", color_);
+  $("." + className).css("text-align", "center");
+  $("." + className).css("visibility", "visible");
 }
-// timeTableGrid(".9am", ".20pm", ".sunday");
-// timeTableGrid(".10am", ".19pm", ".monday");
-// timeTableGrid(".10am", ".19pm", ".tuesday");
-timeTableGrid(".8am", ".12pm", ".wednesday");
-// timeTableGrid(".8am", ".12pm", ".thursday");
+timeTableGrid(".8am", ".12pm", ".sunday", "2ELI1_C1", "black");
+timeTableGrid(".8am", ".9am", ".monday", "2ELI1_C1", "red");
+timeTableGrid(".8am", ".9am", ".tuesday", "2ELI1_C1", "green");
+timeTableGrid(".7am", ".9am", ".wednesday", "2ELI1_C1", "blue");
+
 // timeTableGrid(".8am", ".12pm", ".friday");
+// timeTableGrid(".8am", ".9am", ".friday");
 // timeTableGrid(".8am", ".9am", ".friday");
